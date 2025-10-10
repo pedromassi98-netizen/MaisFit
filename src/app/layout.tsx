@@ -17,8 +17,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nutricionista Digital - Planos Alimentares Personalizados",
-  description: "Crie seu plano alimentar personalizado baseado em seus objetivos, dados físicos e preferências. Nutricionista digital inteligente.",
+  title: "Criado com a Lasy",
+  description: "Projeto criado com Lasy AI",
 };
 
 export default function RootLayout({

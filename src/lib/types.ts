@@ -1,75 +1,69 @@
 export interface UserData {
   // Dados pessoais
   name: string;
+  email: string;
+  whatsapp: string;
   age: number;
   gender: 'masculino' | 'feminino';
-  weight: number; // kg
-  height: number; // cm
+  weight: number;
+  height: number;
   
   // Objetivo
   goal: 'emagrecimento' | 'ganho_massa' | 'manutencao';
   
-  // Atividade física detalhada
+  // Atividade física
   activityLevel: 'sedentario' | 'leve' | 'moderado' | 'intenso' | 'muito_intenso';
-  workoutTime: 'manha' | 'tarde' | 'noite' | 'nao_treina';
-  activityType: 'musculacao' | 'crossfit' | 'esporte' | 'nenhuma';
+  physicalActivity: string;
   cardio: boolean;
-  cardioFrequency: number; // vezes por semana
+  cardioFrequency: number;
+  workoutTime: string;
   
-  // Preferências alimentares detalhadas
-  dietaryRestrictions: string[];
-  customRestrictions: string; // campo de busca personalizado
-  
-  // Alimentos preferidos por categoria
+  // Preferências alimentares
   preferredCarbs: string[];
   preferredProteins: string[];
   preferredFruits: string[];
   preferredVegetables: string[];
-  customFoodPreferences: string; // campo de busca personalizado
+  restrictions: string[];
   
-  // Suplementos
-  currentSupplements: string[]; // suplementos que já usa
-  interestedSupplements: string[]; // suplementos que tem interesse
-  supplementGoals: string[]; // objetivos com suplementos
-  
-  // Rotina diária
+  // Rotina
   wakeUpTime: string;
   breakfastTime: string;
   lunchTime: string;
   snackTime: string;
   dinnerTime: string;
-  sleepTime: string;
+  
+  // Suplementos
+  currentSupplements: string[];
+  interestedSupplements: string[];
+  supplementGoals: string[];
   
   // Orçamento
   budget: 'baixo' | 'medio' | 'alto';
-  
-  // Pagamento
-  hasPaid: boolean;
 }
 
-export interface NutritionalGoals {
+export interface NutritionPlan {
   calories: number;
-  protein: number; // gramas
-  carbs: number; // gramas
-  fat: number; // gramas
-  proteinPercentage: number;
-  carbsPercentage: number;
-  fatPercentage: number;
+  protein: number;
+  carbs: number;
+  fat: number;
+  meals: Meal[];
+  supplements: Supplement[];
+  tips: string[];
 }
 
 export interface Meal {
   name: string;
   time: string;
-  foods: FoodItem[];
-  totalCalories: number;
-  totalProtein: number;
-  totalCarbs: number;
-  totalFat: number;
+  foods: Food[];
+  calories: number;
+  protein: number;
+  carbs: number;
+  fat: number;
 }
 
-export interface FoodItem {
+export interface Food {
   name: string;
-  quantity: string;
+  amount: string;
   calories: number;
   protein: number;
   carbs: number;
@@ -77,12 +71,9 @@ export interface FoodItem {
   alternatives?: string[];
 }
 
-export interface MealPlan {
-  meals: Meal[];
-  totalCalories: number;
-  totalProtein: number;
-  totalCarbs: number;
-  totalFat: number;
-  supplements?: string[];
-  tips: string[];
+export interface Supplement {
+  name: string;
+  dosage: string;
+  timing: string;
+  benefits: string;
 }
